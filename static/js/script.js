@@ -21,9 +21,7 @@ const messageBox =
     document.getElementById("message-box");
 
 
-// ==========================================
-// Character Counter
-// ==========================================
+
 
 promptInput.addEventListener("input", () => {
 
@@ -40,9 +38,7 @@ promptInput.addEventListener("input", () => {
 });
 
 
-// ==========================================
-// Show Message
-// ==========================================
+
 
 function showMessage(message, type) {
 
@@ -53,9 +49,7 @@ function showMessage(message, type) {
 }
 
 
-// ==========================================
-// Hide Message
-// ==========================================
+
 
 function hideMessage() {
 
@@ -65,9 +59,7 @@ function hideMessage() {
 }
 
 
-// ==========================================
-// Generate Image
-// ==========================================
+
 
 generateBtn.addEventListener("click", async () => {
 
@@ -90,9 +82,7 @@ generateBtn.addEventListener("click", async () => {
     }
 
 
-    // --------------------------
-    // Start Loading State
-    // --------------------------
+   
 
     generateBtn.disabled = true;
 
@@ -127,8 +117,19 @@ generateBtn.addEventListener("click", async () => {
         });
 
 
-        const data =
-            await response.json();
+       const contentType = response.headers.get("content-type");
+
+let data;
+
+if (contentType && contentType.includes("application/json")) {
+    data = await response.json();
+} else {
+    const text = await response.text();
+
+    throw new Error(
+        `Server returned ${response.status}: ${text}`
+    );
+}
 
 
         if (!response.ok || !data.success) {
@@ -141,9 +142,7 @@ generateBtn.addEventListener("click", async () => {
         }
 
 
-        // --------------------------
-        // Display Generated Image
-        // --------------------------
+        
 
         generatedImage.src =
             data.image_url +
@@ -214,9 +213,7 @@ generateBtn.addEventListener("click", async () => {
 });
 
 
-// ==========================================
-// Download Generated Image
-// ==========================================
+
 
 downloadBtn.addEventListener("click", () => {
 
