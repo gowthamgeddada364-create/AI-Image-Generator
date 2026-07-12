@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>ImagineAI - AI Image Generator</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="logo">
+            <span class="logo-icon">✦</span>
+            Imagine<span>AI</span>
+        </div>
+
+        <a href="#generator" class="nav-btn">
+            Start Creating
+        </a>
+    </nav>
+
+
+    <!-- Hero Section -->
+    <section class="hero">
+
+        <div class="hero-content">
+
+            <div class="badge">
+                ✨ AI-Powered Image Generation
+            </div>
+
+            <h1>
+                Turn Your Imagination
+                <span>Into Stunning Images</span>
+            </h1>
+
+            <p>
+                Describe anything you can imagine and let artificial
+                intelligence transform your words into beautiful,
+                unique artwork in seconds.
+            </p>
+
+            <a href="#generator" class="hero-btn">
+                Start Generating
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- Generator Section -->
+    <section class="generator-section" id="generator">
+
+        <div class="generator-container">
+
+            <div class="section-heading">
+                <h2>Create Your Image</h2>
+
+                <p>
+                    Enter a detailed description of the image
+                    you want to generate.
+                </p>
+            </div>
+
+
+            <!-- Prompt Box -->
+            <div class="prompt-card">
+
+                <label for="prompt">
+                    Describe your imagination
+                </label>
+
+                <textarea
+                    id="prompt"
+                    placeholder="Example: A futuristic city floating above the clouds at sunset..."
+                ></textarea>
+
+
+                <div class="prompt-footer">
+
+                    <span id="char-count">
+                        0 / 500
+                    </span>
+
+                    <button id="generate-btn">
+                        ✦ Generate Image
+                    </button>
+
+                </div>
+
+
+            <!-- Error / Status Message -->
+<div class="message-box" id="message-box"></div>
+            </div>
+
+
+            <!-- Image Preview -->
+            <div class="preview-card">
+
+                <div class="preview-placeholder" id="preview-placeholder">
+
+                    <div class="preview-icon">
+                        🖼️
+                    </div>
+
+                    <h3>Your creation will appear here</h3>
+
+                    <p>
+                        Enter a prompt and click Generate Image
+                        to bring your imagination to life.
+                    </p>
+
+                </div>
+            
+
+                <!-- Loading State -->
+<div class="loading-container" id="loading-container">
+
+    <div class="loader"></div>
+
+    <h3>Creating your masterpiece...</h3>
+
+    <p>
+        AI is transforming your imagination into an image.
+        This may take a few seconds.
+    </p>
+
+</div>
+
+                <!-- Generated Image -->
+                <div class="generated-result" id="generated-result">
+
+                    <img
+                        id="generated-image"
+                        src=""
+                        alt="AI Generated Image"
+                    >
+
+                    <button id="download-btn">
+                        ↓ Download Image
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Footer -->
+    <footer>
+
+        <p>
+            Built with ❤️ using Python, Flask & Artificial Intelligence
+        </p>
+
+    </footer>
+
+
+    <script
+        src="{{ url_for('static', filename='js/script.js') }}">
+    </script>
+
+</body>
+</html>
